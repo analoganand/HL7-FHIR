@@ -1,0 +1,11 @@
+MSH|^~\&|HIS|HOSP|EMR|CLINIC|20260607091500||ADT^A04|MSG-20260607-01|P|2.5
+EVN|A04|20260607091500
+PID|1||MRN-99||Patel^Anand||19990421|M||Asian^Hindu^English|Nagina Wadi^Nr.Kankaria Lake, Front Gate No.6^Ahmedabad^GJ^380008||07912345678^9876543210^^anand.patel@gmail.com|||||Dr Jagruti Pate4l^Dr Dinesh Patel
+IN1|1|SUB-86534||Kotak General Insurance||||||||20250901|20271231|1|0
+IN1|2|SUB-93932||HDFC ERGO||||||||20260101|20271231|2|0
+GT1|1||John^Patel||456 Oak St^That Street^Chicago^IL^606011|9125554299|9125554299|19820515|F||8|d^^^john.patel@gmail.com
+GT1|2||Marry^Patel||456 Oak St^That Street^Chicago^IL^606011|9125554288|9125554288|19850115|F||8|d^^^marry.patel@gmail.com
+NK1|1||Alex^Patel||789 Pin Ln^This Street^Chicago^IL^606011|3132784444|3132784444|19551120|M||1|^^^alex.patel@gmail.com
+NK1|2||Susan^Patel||789 Pne Ln^There Street^Chicago^IL^606011|3125257623|3125257623|19601120|M||3|^^^susan.patel@email.com
+NK1|3||Amy^Patel||789 ine Ln^Where street^Chicago^IL^606011|3117053323|3117053323|19990320|M||3|^^^amy.patel@email.com
+

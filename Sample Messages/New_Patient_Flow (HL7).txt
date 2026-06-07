@@ -1,0 +1,61 @@
+===============================================Message successfully extracted from file===============================================
+===============================================Starting Message Processing===============================================
+Checking if HL7 is ADT or not
+Valid ADT Message Type: A04
+Parsed PID now extracting data from PID
+Extracted Data from PID
+Parsed IN1 now extracting data from IN1: 1
+Extracted Data from IN1:1
+Parsed IN1 now extracting data from IN1: 2
+Extracted Data from IN1:2
+Parsed GT1 now extracting data from GT1: 1
+Extracted data from GT1L 1
+Parsed GT1 now extracting data from GT1: 2
+Extracted data from GT1L 2
+Parsed NK1 now extracting data from NK1:1
+Extracted data from NK1:1
+Parsed NK1 now extracting data from NK1:2
+Extracted data from NK1:2
+Parsed NK1 now extracting data from NK1:3
+Extracted data from NK1:3
+===============================================Passing all extracted data to process and create entries===============================================
+===============Checking for Existing Patient===============
+No existing patient found, creating new patient
+New Patient created, PatientID: 11,AccountNumber:MRN-99
+Deleted all existing insurance for Patient ID:11
+Checking insurance: Kotak General Insurance
+Did not Found insurance: Kotak General Insurance hence created new insurance: Kotak General Insurance, InsuranceID: 11
+Mapping insurance: Kotak General Insurance 11 to Patient: 11
+Mapped insurance: Kotak General Insurance 11 to Patient: 11
+Checking insurance: HDFC ERGO
+Did not Found insurance: HDFC ERGO hence created new insurance: HDFC ERGO, InsuranceID: 12
+Mapping insurance: HDFC ERGO 12 to Patient: 11
+Mapped insurance: HDFC ERGO 12 to Patient: 11
+Checking Guarantor using mobile_number:9125554299
+No Guarantor Found with Mobile Number: 9125554299 Hence created GuarantorID: 13 
+Creating new Relation with new Guarantor, GRID: 13, PatientID: 11
+Relation is created with Patient, GRID: 13, PatientID: 11, Realtion: 8,guarantor_Patient_relationID: 15 
+Append All Active GR RelationID:[15]
+Checking Guarantor using mobile_number:9125554288
+No Guarantor Found with Mobile Number: 9125554288 Hence created GuarantorID: 14 
+Creating new Relation with new Guarantor, GRID: 14, PatientID: 11
+Relation is created with Patient, GRID: 14, PatientID: 11, Realtion: 8,guarantor_Patient_relationID: 16 
+Append All Active GR RelationID:[15, 16]
+Remove all existing GR Relation which are not received in HL7, Count: (0)
+Checking Next To Kin using Mobile Number:3132784444
+No Next to Kin Found with Mobile Number: 3132784444 Hence created NKID: 20 
+Creating new Relation with new Next to Kin, NKID: 20, PatientID: 11
+Relation is created with Patient, GRID: 20, PatientID: 11, Realtion: 1,next_to_kin_patient_relation: None
+Append All Active NK1 RelationID:[15, 16]
+Checking Next To Kin using Mobile Number:3125257623
+No Next to Kin Found with Mobile Number: 3125257623 Hence created NKID: 21 
+Creating new Relation with new Next to Kin, NKID: 21, PatientID: 11
+Relation is created with Patient, GRID: 21, PatientID: 11, Realtion: 3,next_to_kin_patient_relation: None
+Append All Active NK1 RelationID:[15, 16]
+Checking Next To Kin using Mobile Number:3117053323
+No Next to Kin Found with Mobile Number: 3117053323 Hence created NKID: 22 
+Creating new Relation with new Next to Kin, NKID: 22, PatientID: 11
+Relation is created with Patient, GRID: 22, PatientID: 11, Realtion: 3,next_to_kin_patient_relation: None
+Append All Active NK1 RelationID:[15, 16]
+Remove all existing NK1 Relation which are not received in HL7, Count: (0)
+===============================================Flow Ended Successfully===============================================

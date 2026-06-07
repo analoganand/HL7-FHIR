@@ -1,0 +1,80 @@
+===============================================Message successfully extracted from file===============================================
+===============================================Starting Message Processing===============================================
+Checking if HL7 is ADT or not
+Valid ADT Message Type: A04
+Parsed PID now extracting data from PID
+Extracted Data from PID
+Parsed IN1 now extracting data from IN1: 1
+Extracted Data from IN1:1
+Parsed GT1 now extracting data from GT1: 1
+Extracted data from GT1L 1
+Parsed NK1 now extracting data from NK1:1
+Extracted data from NK1:1
+===============================================Passing all extracted data to process and create entries===============================================
+===============Checking for Existing Patient===============
+Found existing Patient:11, now updating the patient
+Updating patient:11,Data: account_number,MRN-99
+Updating patient:11,Data: lastname,Patel
+Updating patient:11,Data: firstname,Anand
+Updating patient:11,Data: dob,1999-04-21
+Updating patient:11,Data: gender,M
+Updating patient:11,Data: race,Asian
+Updating patient:11,Data: ethnicity,Hindu
+Updating patient:11,Data: language,English
+Updating patient:11,Data: address_line_1,Nagina Wadi 2
+Updating patient:11,Data: address_line_2,Nr.Kankaria Lakee, Front Gate No.7
+Updating patient:11,Data: city,Ahmedabad
+Updating patient:11,Data: state,GJ
+Updating patient:11,Data: pincode,380008
+Updating patient:11,Data: home_phone,07912345678
+Updating patient:11,Data: mobile_number,9876543210
+Updating patient:11,Data: email,anand.p@gmail.com
+Updating patient:11,Data: pcp_name,Dr Jagruti Pate4l
+Updating patient:11,Data: ref_name,Dr Dinesh Patel
+===============================================Updated patient:11===============================================
+Deleted all existing insurance for Patient ID:11
+Checking insurance: Kotak General Insurance
+Found insurance: Kotak General Insurance, InsuranceID: 11
+Mapping insurance: Kotak General Insurance 11 to Patient: 11
+Mapped insurance: Kotak General Insurance 11 to Patient: 11
+Checking Guarantor using mobile_number:9125554299
+Found Guarantor: 13
+Updating Guarantor: 13, Data: lastname,John
+Updating Guarantor: 13, Data: firstname,Patel
+Updating Guarantor: 13, Data: dob,1982-05-15
+Updating Guarantor: 13, Data: gender,F
+Updating Guarantor: 13, Data: mobile_number,9125554299
+Updating Guarantor: 13, Data: address_line_1,456 Oak St
+Updating Guarantor: 13, Data: address_line_2,That Street
+Updating Guarantor: 13, Data: city,Chicago
+Updating Guarantor: 13, Data: state,IL
+Updating Guarantor: 13, Data: pincode,606011
+Updating Guarantor: 13, Data: home_phone,9125554299
+Updating Guarantor: 13, Data: email,john.patel@gmail.com
+Updated Guarantor: 13
+Relation is already present with Patient, GRID: 13, PatientID: 11, RelationID: 15, Relation: 8
+Relation updated for GRID: 13, PatientID: 11, RelationID: 15, Relation: 8
+All other Guarantor Relation inactivated other than received in HL7
+Append All Active GR RelationID:[15]
+Remove all existing GR Relation which are not received in HL7, Count: (1)
+Checking Next To Kin using Mobile Number:3132784444
+Found Next To Kin: 20
+Updating Next To Kin :20, lastname Alex
+Updating Next To Kin :20, firstname Patel
+Updating Next To Kin :20, dob 1955-11-20
+Updating Next To Kin :20, gender M
+Updating Next To Kin :20, mobile_number 3132784444
+Updating Next To Kin :20, address_line_1 789 Pin Ln
+Updating Next To Kin :20, address_line_2 This Street
+Updating Next To Kin :20, city Chicago
+Updating Next To Kin :20, state IL
+Updating Next To Kin :20, pincode 606011
+Updating Next To Kin :20, home_phone 3132784444
+Updating Next To Kin :20, email alex.patel@gmail.com
+UpdatedNext To Kin: 20
+Relation is already present with Patient, NKID: 24, PatientID: 11, RelationID: 24, Relation: 1
+Relation updated for NKID: 24, PatientID: 11, RelationID: 24, Relation: 1
+All other NK1 Relation inactivated other than received in HL7
+Append All Active NK1 RelationID:[15]
+Remove all existing NK1 Relation which are not received in HL7, Count: (2)
+===============================================Flow Ended Successfully===============================================

@@ -10,63 +10,89 @@ class HL7_Extract:
         extracted_nexttokin = []
 
         try:
-            pid_segment = parsed_HL7.segment("PID")
-            audit_trail.append("Parsed PID now extracting data from PID")
-            extracted_demographics = self._pid_extract(pid_segment,audit_trail)
+            msh_segment = parsed_HL7.segment("MSH")
+            audit_trail.append("Checking if HL7 is ADT or not")
+            count = self._msh_extract(msh_segment,audit_trail)
 
-        except hl7.SegmentNotFound:
-            audit_trail.append("PID is missing from HL7")
-            print("No PID Segement Found")
+            if count==0:
+                
+                try:
+                    pid_segment = parsed_HL7.segment("PID")
+                    audit_trail.append("Parsed PID now extracting data from PID")
+                    extracted_demographics = self._pid_extract(pid_segment,audit_trail)
 
-        try:
-            in1counter = 0
-            for in1segment in parsed_HL7.segments("IN1"):
-                in1counter += 1
-                audit_trail.append(f"Parsed IN1 now extracting data from IN1: {in1counter}")
-                insurance,insurance_name = self._insurance_extract(in1segment,audit_trail,in1counter)
-                extracted_insurance.append({
-                    "insurancedata": insurance,
-                    "insurance_name": insurance_name
-                })
+                except hl7.SegmentNotFound:
+                    audit_trail.append("PID is missing from HL7")
+                    print("No PID Segement Found")
+
+                try:
+                    in1counter = 0
+                    for in1segment in parsed_HL7.segments("IN1"):
+                        in1counter += 1
+                        audit_trail.append(f"Parsed IN1 now extracting data from IN1: {in1counter}")
+                        insurance,insurance_name = self._insurance_extract(in1segment,audit_trail,in1counter)
+                        extracted_insurance.append({
+                            "insurancedata": insurance,
+                            "insurance_name": insurance_name
+                        })
+                    
+                except hl7.SegmentNotFound:
+                    audit_trail.append("No IN1 segment found in the HL7 message.")
+                    print("No IN1 segment found in the HL7 message.")
+
+                try:
+                    gt1counter = 0
+                    for gt1segment in parsed_HL7.segments("GT1"):
+                        gt1counter += 1
+                        audit_trail.append(f"Parsed GT1 now extracting data from GT1: {gt1counter}")
+                        guarantor, guarantor_mobile = self._guarantor_extract(gt1segment,audit_trail,gt1counter)
+                        extracted_gurantor.append({
+                            "guarantordata": guarantor,
+                            "guarantor_mobile": guarantor_mobile
+                        })
+                
+                except hl7.SegmentNotFound:
+                    audit_trail.append("No GT1 segment found in the HL7 message.")
+                    print("No GT1 segment found in the HL7 message.")
+
+                try:
+                    nk1counter = 0
+                    for nk1segment in parsed_HL7.segments("NK1"):
+                        nk1counter += 1
+                        audit_trail.append(f"Parsed NK1 now extracting data from NK1:{nk1counter}")
+                        nexttokin,nexttokin_mobile_number = self._nk1_extract(nk1segment,audit_trail,nk1counter)
+                        extracted_nexttokin.append({
+                            "nk1_data": nexttokin,
+                            "nk1_mobile": nexttokin_mobile_number
+                        })
+
+                except hl7.SegmentNotFound:
+                    audit_trail.append("No NK1 segment found in the HL7 message.")
+                    print("No NK1 segment found in the HL7 message.")
+                
+                audit_trail.append("===============================================Passing all extracted data to process and create entries===============================================")
+                return(extracted_demographics,extracted_insurance,extracted_gurantor,extracted_nexttokin,audit_trail,hl7_message)
             
-        except hl7.SegmentNotFound:
-            audit_trail.append("No IN1 segment found in the HL7 message.")
-            print("No IN1 segment found in the HL7 message.")
+        except KeyError:
+            audit_trail.append("MSH is missing from HL7")
 
-        try:
-            gt1counter = 0
-            for gt1segment in parsed_HL7.segments("GT1"):
-                gt1counter += 1
-                audit_trail.append(f"Parsed GT1 now extracting data from GT1: {gt1counter}")
-                guarantor, guarantor_mobile = self._guarantor_extract(gt1segment,audit_trail,gt1counter)
-                extracted_gurantor.append({
-                    "guarantordata": guarantor,
-                    "guarantor_mobile": guarantor_mobile
-                })
         
-        except hl7.SegmentNotFound:
-            audit_trail.append("No GT1 segment found in the HL7 message.")
-            print("No GT1 segment found in the HL7 message.")
+    
+    def _msh_extract(self,msh_segment,audit_trail):
+        msh = {
+            "message_type" :str(msh_segment[9][0][0]),
+            "sub_message_type" :str(msh_segment[9][0][1])
+        }
 
-        try:
-            nk1counter = 0
-            for nk1segment in parsed_HL7.segments("NK1"):
-                nk1counter += 1
-                audit_trail.append(f"Parsed NK1 now extracting data from NK1:{nk1counter}")
-                nexttokin,nexttokin_mobile_number = self._nk1_extract(nk1segment,audit_trail,nk1counter)
-                extracted_nexttokin.append({
-                    "nk1_data": nexttokin,
-                    "nk1_mobile": nexttokin_mobile_number
-                })
-
-        except hl7.SegmentNotFound:
-            audit_trail.append("No NK1 segment found in the HL7 message.")
-            print("No NK1 segment found in the HL7 message.")
-
-        audit_trail.append("===============================================Passing all extracted data to process and create entries===============================================")
-        
-        return(extracted_demographics,extracted_insurance,extracted_gurantor,extracted_nexttokin,audit_trail,hl7_message)
-        
+        if msh["message_type"] == "ADT" and msh["sub_message_type"] in ("A04","A08","A28","A31"):
+            audit_trail.append(f"Valid ADT Message Type: {msh['sub_message_type']}")
+            count=0
+            return count
+        else:
+            count=1
+            error_msg = f"Unsupported Message Type: {msh['message_type']}^{msh['sub_message_type']}. Expected ADT."
+            audit_trail.append(error_msg)
+            raise ValueError(error_msg)
 
     def _pid_extract(self,pid_segment,audit_trail):
 

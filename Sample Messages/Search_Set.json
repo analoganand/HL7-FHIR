@@ -1,0 +1,298 @@
+{
+  "resourceType": "Bundle",
+  "type": "searchset",
+  "total": 6,
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "SYSGEN-c7c59065",
+        "identifier": [
+          {
+            "system": "urn:oid:sysgen",
+            "value": "SYSGEN-c7c59065"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Patel",
+            "given": [
+              "Anand"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "07925357035",
+            "use": "home"
+          },
+          {
+            "system": "phone",
+            "value": "7623029499",
+            "use": "mobile"
+          },
+          {
+            "system": "email",
+            "value": "abc@gmail.com"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1980-01-01",
+        "address": [
+          {
+            "line": [
+              "23 Kedaram Villa",
+              "Besides Tirth 3"
+            ],
+            "city": "Ahmedabad",
+            "state": "GJ",
+            "postalCode": "382440"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "text": "English"
+            }
+          }
+        ],
+        "generalPractitioner": [
+          {
+            "display": "Dr Jagruti Pate4l"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Coverage",
+        "id": "INS-1-0af0d3e1",
+        "status": "active",
+        "kind": "Insurance",
+        "type": {
+          "coding": [
+            {
+              "code": "1"
+            }
+          ]
+        },
+        "subscriberId": [
+          {
+            "value": "SUB-425678"
+          }
+        ],
+        "beneficiary": {
+          "reference": "Patient/SYSGEN-c7c59065"
+        },
+        "period": {
+          "start": "2023-01-01",
+          "end": "2023-12-31"
+        },
+        "insurer": {
+          "display": "BlueCros BlueShield2"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Coverage",
+        "id": "INS-2-93c8fe2d",
+        "status": "active",
+        "kind": "Insurance",
+        "type": {
+          "coding": [
+            {
+              "code": "2"
+            }
+          ]
+        },
+        "subscriberId": [
+          {
+            "value": "SUB-4256728"
+          }
+        ],
+        "beneficiary": {
+          "reference": "Patient/SYSGEN-c7c59065"
+        },
+        "period": {
+          "start": "2023-01-01",
+          "end": "2023-12-31"
+        },
+        "insurer": {
+          "display": "Reliace"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "id": "GT1-9125559999-d0fe65a6",
+        "active": true,
+        "patient": {
+          "reference": "Patient/SYSGEN-c7c59065"
+        },
+        "relationship": [
+          {
+            "coding": [
+              {
+                "code": "Employee"
+              }
+            ]
+          }
+        ],
+        "name": [
+          {
+            "family": "Jagrut",
+            "given": [
+              "Patel"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "3125559999",
+            "use": "home"
+          },
+          {
+            "system": "phone",
+            "value": "9125559999",
+            "use": "mobile"
+          },
+          {
+            "system": "email",
+            "value": "anesh.patel@email.com"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1982-05-15",
+        "address": [
+          {
+            "line": [
+              "456 Oak St",
+              "abc"
+            ],
+            "city": "Chicago",
+            "state": "IL",
+            "postalCode": "606011"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "id": "NK1-3125253323-1e5fea1d",
+        "active": true,
+        "patient": {
+          "reference": "Patient/SYSGEN-c7c59065"
+        },
+        "relationship": [
+          {
+            "coding": [
+              {
+                "code": "Child - Financial Responsibility"
+              }
+            ]
+          }
+        ],
+        "name": [
+          {
+            "family": "Jagruti",
+            "given": [
+              "Patel"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "3135554444",
+            "use": "home"
+          },
+          {
+            "system": "phone",
+            "value": "3125253323",
+            "use": "mobile"
+          },
+          {
+            "system": "email",
+            "value": "obert.j@email.com"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1955-11-20",
+        "address": [
+          {
+            "line": [
+              "789 Pne Ln",
+              "abc"
+            ],
+            "city": "Chicago",
+            "state": "IL",
+            "postalCode": "606011"
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "id": "NK1-3125353323-cbcfa49f",
+        "active": true,
+        "patient": {
+          "reference": "Patient/SYSGEN-c7c59065"
+        },
+        "relationship": [
+          {
+            "coding": [
+              {
+                "code": "Child - Financial Responsibility"
+              }
+            ]
+          }
+        ],
+        "name": [
+          {
+            "family": "Jyoti",
+            "given": [
+              "Patel"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "3135554444",
+            "use": "home"
+          },
+          {
+            "system": "phone",
+            "value": "3125353323",
+            "use": "mobile"
+          },
+          {
+            "system": "email",
+            "value": "bert.j@email.com"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1955-11-20",
+        "address": [
+          {
+            "line": [
+              "789 ine Ln",
+              "abc"
+            ],
+            "city": "Chicago",
+            "state": "IL",
+            "postalCode": "606011"
+          }
+        ]
+      }
+    }
+  ]
+}

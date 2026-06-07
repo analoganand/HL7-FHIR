@@ -10,9 +10,13 @@ class FHIR_Crud:
     
     def fetch_patient_demograhics(self,account_number,dob):
         db= session() 
+        try:
+            patient = db.query(patient_demographics).filter_by(account_number=account_number,dob=dob,deleteflag=False).first()
+            patientid= patient.id
 
-        patient = db.query(patient_demographics).filter_by(account_number=account_number,dob=dob,deleteflag=False).first()
-        patientid= patient.id
+        except Exception as e:
+            print(f"Error fetching patient demographics: {e}")
+            return {"error": "Patient not found"}
 
         all_insurance = self._fetch_patient_insurance (db,patientid)
         all_gurantors = self._fetch_patient_Guarantor(db,patientid)
